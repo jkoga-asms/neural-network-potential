@@ -1,0 +1,23 @@
+units metal
+boundary p p p
+atom_style atomic
+
+read_data ../coord.lammps
+
+mass 1 28
+mass 2 16
+pair_style      aenet
+pair_coeff      * * v00 Si O 10t-10t.nn Si O
+
+velocity all create 500.0 1234
+
+timestep 0.001
+thermo 100
+
+dump            1 all custom 20 dump element type xsu ysu zsu
+dump_modify     1 element Si O sort id
+
+fix 1 all nvt temp 500 500 0.1
+
+run 20000
+
