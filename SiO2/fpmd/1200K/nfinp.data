@@ -119,11 +119,9 @@ structure_evolution{
     predictor{
         sw_wf_predictor = on
     }
-}
-Postprocessing{
-  nnp_output{
-    sw_nnp_output = on
-    filetype  = xsf
-    frequency = 10
-  }
+    nnp_output{
+      sw_nnp_output = on
+      filetype  = xsf
+      frequency = 10
+    }
 }
